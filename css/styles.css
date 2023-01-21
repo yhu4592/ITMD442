@@ -1,0 +1,41 @@
+
+h1 {
+  color: red;
+  font-weight: bold;
+  font-size: 3em;
+  padding: 0.5em 0 0.5em 0;
+}
+
+#header {
+  text-align: center;
+}
+
+#background {
+  background-color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+#intro {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+#intro > img {
+  display: inline-block;
+  background-color: red;
+  width: 25em;
+}
+
+#intro > p {
+  display: inline-block;
+  width: 25em;
+  color: red;
+  font-size: 1.5em;
+}
+
+#footer {
+  text-align: center;
+  color: red;
+  font-family: 'Source Sans Pro', sans-serif;
+}
