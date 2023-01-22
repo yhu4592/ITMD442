@@ -27,7 +27,7 @@
     text-align: center;
     color: white;
     font-family: 'Source Sans Pro', sans-serif;
-    padding: 1em 0 1em 0;
+    padding-bottom: 0.5em;
     background-color: red;
     bottom: 0;
     position: fixed;
@@ -37,6 +37,7 @@
   #assignments {
     text-align: center;
     color: red;
+    padding-bottom: 5em;
   }
 
   #intro > div{
