@@ -1,41 +1,75 @@
+@media (min-width: 300px) {
+  #intro > img {
+    display: inline-block;
+    background-color: red;
+    width: 100%;
+  }
+  
+  h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+    padding: 0.5em 0 0.5em 0;
+    background-color: red;
+  }
 
-h1 {
-  color: red;
-  font-weight: bold;
-  font-size: 3em;
-  padding: 0.5em 0 0.5em 0;
+  #header {
+    text-align: center;
+  }
+
+  #background {
+    background-color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    height: fit-content;
+  }
+
+  #footer {
+    text-align: center;
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 1em 0 1em 0;
+    background-color: red;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+
+  #assignments {
+    text-align: center;
+    color: red;
+  }
+
+  #intro > p {
+    display: inline-block;
+    color: red;
+    font-size: 1.5em;
+    padding: 0 1em 1em 1em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
 }
 
-#header {
-  text-align: center;
+@media (min-width: 600px) {
+  #intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50em;
+    margin: 0 auto;
+  }
+
+  #intro > img {
+    display: inline-block;
+    background-color: red;
+    width: 25em;
+  }
+
+  #intro > p {
+    display: inline-block;
+    color: red;
+    font-size: 1.5em;
+  }
 }
 
-#background {
-  background-color: white;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-#intro {
-  display: flex;
-  align-items: center;
-  justify-content: center
-}
-
-#intro > img {
-  display: inline-block;
-  background-color: red;
-  width: 25em;
-}
-
-#intro > p {
-  display: inline-block;
-  width: 25em;
-  color: red;
-  font-size: 1.5em;
-}
-
-#footer {
-  text-align: center;
-  color: red;
-  font-family: 'Source Sans Pro', sans-serif;
-}
