@@ -25,7 +25,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', (req, res, next) => {
-  res.send(`ID: ${req.params.id}`)
+  let id = data.find(contact => contact.contactID == req.params.id)
+  res.render('contactsID', {title: id.firstName, info:id})
 })
 
 module.exports = router;
