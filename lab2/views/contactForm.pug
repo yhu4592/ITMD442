@@ -3,4 +3,12 @@ extends layout
 block content
   h1= title
   hr
-  
+  if msg 
+    p(class='redText')= msg
+  form(method='POST', action='/contacts/add')
+    input(type='text', name='firstName')
+    input(type='text', name='lastName')
+    input(type='email', name='email')
+    input(type='text', name='notes')
+    button(type='submit') Create Contact
+    a(href='/contacts') Cancel
