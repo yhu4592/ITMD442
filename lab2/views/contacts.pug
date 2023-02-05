@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  hr
+  if contactsList.length > 0
+    #contactsList-wrapper 
+      ul.contacts-list 
+        each contact in contactsList 
+          li(contact-id=contact.contactID)= contact.firstName
