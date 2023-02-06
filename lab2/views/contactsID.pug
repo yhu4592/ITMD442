@@ -6,3 +6,6 @@ block content
   p= info.email
   p= info.notes
   p= info.date
+  a(href=`/contacts/${info.id}/edit`) Edit Contact
+  | 
+  a(href=`/contacts/${info.id}/delete`) Delete Contact
