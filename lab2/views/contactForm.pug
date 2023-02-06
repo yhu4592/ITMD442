@@ -5,7 +5,7 @@ block content
   hr
   if msg 
     p(class='redText')= msg
-  form(method='POST', action='/contacts/add')
+  form#createForm(method='POST', action='/contacts/add')
     label(for='firstName') First Name
     input(type='text', name='firstName')
     label(for='lastName') Last Name

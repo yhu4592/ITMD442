@@ -34,7 +34,7 @@ tr:nth-child(even) {
 }
 /* */
 
-form {
+#createForm {
   padding: 1em;
   background-color: #f5f5f5;
   width: 300px;
@@ -52,7 +52,7 @@ input[type=text], select {
 }
 /* */
 
-form > button {
+#createForm > button {
   text-align: center;
   width: 50%;
   padding: 0.25em;
@@ -64,11 +64,11 @@ form > button {
   margin: 0.25em auto;
 }
 
-form > button:hover {
+#createForm > button:hover {
   background-color: rgb(54, 131, 35);
 }
 
-form > a {
+#createForm > a {
   color: white;
   box-sizing: border-box;
   display: block;
@@ -83,7 +83,7 @@ form > a {
   margin: 0 auto;
 }
 
-form > a:hover {
+#createForm > a:hover {
   background-color: rgb(180, 47, 47);
 }
 
