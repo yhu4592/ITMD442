@@ -44,4 +44,10 @@ router.get('/:id/delete', (req, res, next) => {
   res.render('contactFormDelete', {title: "Delete Contact", info: contactsRepo.findById(req.params.id)})
 })
 
+/* POST delete contact */
+router.post('/:id/delete', (req, res, next) => {
+  contactsRepo.deleteById(req.params.id)
+  res.redirect('/contacts')
+})
+
 module.exports = router;
