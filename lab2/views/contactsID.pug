@@ -3,9 +3,9 @@ extends layout
 block content
   h1= title
   hr
-  p= info.email
-  p= info.notes
-  p= info.date
+  p= 'Email: ' + info.email
+  p= 'Notes: ' + info.notes
+  p= 'Modified: ' + info.date
   a(href=`/contacts/${info.contactID}/edit`) Edit Contact
   | 
   a(href=`/contacts/${info.contactID}/delete`) Delete Contact
