@@ -32,7 +32,12 @@ router.post('/add', (req, res, next) => {
 /* GET contactID listing */
 router.get('/:id', (req, res, next) => {
   const id = contactsRepo.findById(req.params.id)
-  res.render('contactsID', {title: id.firstName + id.lastName, info:id})
+  if (id) {
+    res.render('contactsID', {title: id.firstName + id.lastName, info:id})
+  } else {
+    res.redirect('/contacts')
+  }
+  
 })
 
 module.exports = router;
