@@ -25,7 +25,7 @@ const repo = {
       lastName: newContact.lastName,
       email: newContact.email,
       notes: newContact.notes,
-      date: Date()
+      date: newContact.date
     }
     db.set(contact.contactID, contact)
     saveData()
