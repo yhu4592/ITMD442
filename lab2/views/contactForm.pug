@@ -6,9 +6,13 @@ block content
   if msg 
     p(class='redText')= msg
   form(method='POST', action='/contacts/add')
+    label(for='firstName') First Name
     input(type='text', name='firstName')
+    label(for='lastName') Last Name
     input(type='text', name='lastName')
+    label(for='email') Email
     input(type='text', name='email')
+    label(for='notes') Notes
     input(type='text', name='notes')
     button(type='submit') Create Contact
     a(href='/contacts') Cancel
