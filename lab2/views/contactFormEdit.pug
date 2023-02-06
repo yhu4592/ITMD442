@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  hr
+  if msg 
+    p(class='redText')= msg
+  form(method='POST', action=`/contacts/${info.contactID}/edit`)
+    input(type='text', name='firstName', value=info.firstName)
+    input(type='text', name='lastName', value=info.lastName)
+    input(type='email', name='email', value=info.email)
+    input(type='text', name='notes', value=info.notes)
+    button(type='submit') Update Contact
+    a(href='/contacts') Cancel
