@@ -13,7 +13,7 @@ This is a Node/Express application created using express-generator and pug views
 # Development Environment
 This application was developed on a Ubuntu (62-bit) virtual machine. The application runs on Node v16.17.0 and was developed using Visual Studio Code.
 
-# Installtion/Running Instructions
+# Installation/Running Instructions
 Install Node.js and NPM `sudo apt install nodejs npm`. Verify installations with `node -v` and `npm -v`. Install git using `sudo apt-get install git-all`. Verify installing with `git -version`. Clone this repository using `git clone` and the repository link. On your terminal or IDE, change into the application directory. Run `npm install` to install project dependencies. Run `npm start` to start the application.
 
 # Insights and Results
