@@ -7,7 +7,13 @@ block content
   hr
   if contactsList.length > 0
     #contactsList-wrapper 
-      ul.contacts-list 
+      table.contacts-list
+        tr 
+          th Name 
+          th Email
         each contact in contactsList 
-          li(contact-id=contact.contactID)
-            a(href=`/contacts/${contact.contactID}`)= contact.firstName + " " + contact.lastName
+          tr
+            td(contact-id=contact.contactID)
+              a(href=`/contacts/${contact.contactID}`)= contact.firstName + " " + contact.lastName
+            td= contact.email
+          
