@@ -22,8 +22,8 @@ router.post('/add', (req, res, next) => {
     notes: req.body.notes.trim(),
     date: Date()
   }
-  if (newContact.firstName === '' || newContact.lastName === '' || newContact.notes === ''){
-    res.render('contactForm', {title: "Contacts Form", msg: "Form fields cannot be empty!"})
+  if (newContact.firstName === '' || newContact.lastName === ''){
+    res.render('contactForm', {title: "Contacts Form", msg: "Name fields cannot be empty!"})
   } else {
     contactsRepo.create(newContact)
     res.redirect('/contacts')
