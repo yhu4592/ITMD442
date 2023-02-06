@@ -31,8 +31,8 @@ router.post('/add', (req, res, next) => {
 
 /* GET contactID listing */
 router.get('/:id', (req, res, next) => {
-  const id = data.find(contact => contact.contactID == req.params.id)
-  res.render('contactsID', {title: id.firstName, info:id})
+  const id = contactsRepo.findById(req.params.id)
+  res.render('contactsID', {title: id.firstName + id.lastName, info:id})
 })
 
 module.exports = router;
