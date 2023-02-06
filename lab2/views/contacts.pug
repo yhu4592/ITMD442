@@ -2,9 +2,12 @@ extends layout
 
 block content
   h1= title
+  p Welcome to your #{title}
+  a(href='/contacts/add') Create a new Contact
   hr
   if contactsList.length > 0
     #contactsList-wrapper 
       ul.contacts-list 
         each contact in contactsList 
-          li(contact-id=contact.contactID)= contact.firstName
+          li(contact-id=contact.contactID)
+            a(href=`/contacts/${contact.contactID}`)= contact.firstName + " " + contact.lastName
