@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   p Are you sure you want to delete this contact?
-  p info.firstName
+  p= info.firstName + " " + info.lastName
   form(method='POST', action=`/contacts/${info.contactID}/delete`)
     button(type='submit') Confirm
     | 

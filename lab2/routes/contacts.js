@@ -65,8 +65,12 @@ router.post('/:id/edit', (req, res, next) => {
     notes: req.body.notes.trim(),
     date: Date()
   }
-  contactsRepo.update(updateContact)
-  res.redirect(`/contacts/${req.params.id}`)
+  if (updateContact.firstName === '' || updateContact.lastName === ''){
+    res.render('contactFormEdit', {title: "Contacts Form", info: contactsRepo.findById(req.params.id), msg: "Name fields cannot be empty!"})
+  } else {
+    contactsRepo.update(updateContact)
+    res.redirect(`/contacts/${req.params.id}`)
+  }
 })
 
 module.exports = router;
