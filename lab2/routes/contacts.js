@@ -50,4 +50,21 @@ router.post('/:id/delete', (req, res, next) => {
   res.redirect('/contacts')
 })
 
+/* GET edit form */
+router.get('/:id/edit', (req, res, next) => {
+  res.render('contactFormEdit', {title: 'Edit Contact', info: contactsRepo.findById(req.params.id)})
+})
+
+router.post('/:id/edit', (req, res, next) => {
+  const updateContact = {
+    contactID: req.params.id,
+    firstName: req.body.firstName.trim(),
+    lastName: req.body.lastName.trim(),
+    email: req.body.email.trim(),
+    notes: req.body.notes.trim(),
+  }
+  contactsRepo.update(updateContact)
+  res.redirect(`/contacts/${req.params.id}`)
+})
+
 module.exports = router;
