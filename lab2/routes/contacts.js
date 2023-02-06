@@ -34,7 +34,7 @@ router.post('/add', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
   const id = contactsRepo.findById(req.params.id)
   if (id) {
-    res.render('contactsID', {title: id.firstName + id.lastName, info:id})
+    res.render('contactsID', {title: id.firstName + ' ' + id.lastName, info:id})
   } else {
     res.redirect('/contacts')
   }
