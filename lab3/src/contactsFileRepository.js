@@ -19,7 +19,11 @@ const repo = {
     })
     return contacts
   },
-  findById: () => {},
+  findById: (id) => {
+    const stmt = db.prepare("SELECT * FROM contacts WHERE contactID = ?")
+    const contact = stmt.get(id)
+    return new Contact(contact.contactID, contact.firstName, contact.lastName, contact.email, contact.notes, contact.date)
+  },
   create: newContact => {
     
   },
