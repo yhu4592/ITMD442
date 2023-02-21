@@ -1,7 +1,7 @@
 # Yongkang Hu
 yhu78@hawk.iit.edu
 
-ITMD-442 Lab 2
+ITMD-442 Lab 3
 
 https://github.com/yhu4592/ITMD442
 
