@@ -25,7 +25,7 @@ const repo = {
     return new Contact(contact.contactID, contact.firstName, contact.lastName, contact.email, contact.notes, contact.date)
   },
   create: newContact => {
-    const stmt = db.prepare("INSERT INTO contacts (firstName, lastName, email, notes, date) VALUES (?)")
+    const stmt = db.prepare("INSERT INTO contacts (firstName, lastName, email, notes, date) VALUES (?, ?, ?, ?, ?)")
     const info = stmt.run(newContact.firstName, newContact.lastName, newContact.email, newContact.notes, newContact.date)
   },
   deleteById: id => {
