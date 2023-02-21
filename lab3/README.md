@@ -5,7 +5,7 @@ ITMD-442 Lab 3
 
 https://github.com/yhu4592/ITMD442
 
-https://github.com/yhu4592/ITMD442/tree/main/lab2
+https://github.com/yhu4592/ITMD442/tree/main/lab3
 
 # Project Description
 This is a Node/Express application created using express-generator and pug views. Users can create, edit, and delete contact information using the application. The application stores the contact data as a JSON file read by the application using the fs module.
