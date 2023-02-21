@@ -2,79 +2,30 @@ var express = require('express')
 var router = express.Router()
 const contactsRepo = require('../src/contactsFileRepository')
 const Contact = require('../src/contact')
+const contactsController = require('../controllers/contactsController')
 
 /* GET contacts listing. */
-router.get('/', function(req, res, next) {
-  const data = contactsRepo.findAll()
-  res.render('contacts', {title: "Contacts", contactsList: data});
-})
+router.get('/', contactsController.contacts_list)
 
 /* GET create contact form */
-router.get('/add', (req, res, next) => {
-  res.render('contactForm', {title: "Contact Form"})
-})
+router.get('/add', contactsController.contacts_create_form)
 
 /* POST create contact */
-router.post('/add', (req, res, next) => {
-  const newContactData = {
-    firstName: req.body.firstName.trim(),
-    lastName: req.body.lastName.trim(),
-    email: req.body.email.trim(),
-    notes: req.body.notes.trim(),
-    date: Date().toString()
-  }
-  if (newContactData.firstName === '' || newContactData.lastName === ''){
-    res.render('contactForm', {title: "Contacts Form", msg: "Name fields cannot be empty!"})
-  } else {
-    const newContact = new Contact('', newContactData.firstName, newContactData.lastName, newContactData.email, newContactData.notes, newContactData.date)
-    contactsRepo.create(newContact)
-    res.redirect('/contacts')
-  }
-})
+router.post('/add', contactsController.contacts_create_form_post)
 
 /* GET contactID listing */
-router.get('/:id', (req, res, next) => {
-  const id = contactsRepo.findById(req.params.id)
-  if (id) {
-    res.render('contactsID', {title: id.firstName + ' ' + id.lastName, info:id})
-  } else {
-    res.redirect('/contacts')
-  }
-})
+router.get('/:id', contactsController.contacts_get_listing)
 
 /* GET delete form */
-router.get('/:id/delete', (req, res, next) => {
-  res.render('contactFormDelete', {title: "Delete Contact", info: contactsRepo.findById(req.params.id)})
-})
+router.get('/:id/delete', contactsController.contacts_get_delete)
 
 /* POST delete contact */
-router.post('/:id/delete', (req, res, next) => {
-  contactsRepo.deleteById(req.params.id)
-  res.redirect('/contacts')
-})
+router.post('/:id/delete', contactsController.contacts_delete_post)
 
 /* GET edit form */
-router.get('/:id/edit', (req, res, next) => {
-  res.render('contactFormEdit', {title: 'Edit Contact', info: contactsRepo.findById(req.params.id)})
-})
+router.get('/:id/edit', contactsController.contacts_get_edit)
 
 /* POST edit contact */
-router.post('/:id/edit', (req, res, next) => {
-  const updateContactData = {
-    contactID: req.params.id,
-    firstName: req.body.firstName.trim(),
-    lastName: req.body.lastName.trim(),
-    email: req.body.email.trim(),
-    notes: req.body.notes.trim(),
-    date: Date().toString()
-  }
-  if (updateContactData.firstName === '' || updateContactData.lastName === ''){
-    res.render('contactFormEdit', {title: "Contacts Form", info: contactsRepo.findById(req.params.id), msg: "Name fields cannot be empty!"})
-  } else {
-    const updatedContact = new Contact(updateContactData.contactID, updateContactData.firstName, updateContactData.lastName, updateContactData.email, updateContactData.notes, updateContactData.date)
-    contactsRepo.update(updatedContact)
-    res.redirect(`/contacts/${req.params.id}`)
-  }
-})
+router.post('/:id/edit', contactsController.contacts_edit_post)
 
 module.exports = router;
