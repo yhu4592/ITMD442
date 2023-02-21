@@ -16,17 +16,17 @@ router.get('/add', (req, res, next) => {
 
 /* POST create contact */
 router.post('/add', (req, res, next) => {
-  const newContact = {
+  const newContactData = {
     firstName: req.body.firstName.trim(),
     lastName: req.body.lastName.trim(),
     email: req.body.email.trim(),
     notes: req.body.notes.trim(),
     date: Date().toString()
   }
-  if (newContact.firstName === '' || newContact.lastName === ''){
+  if (newContactData.firstName === '' || newContactData.lastName === ''){
     res.render('contactForm', {title: "Contacts Form", msg: "Name fields cannot be empty!"})
   } else {
-    const newContact = new Contact('', firstName, lastName, email, notes, date)
+    const newContact = new Contact('', newContactData.firstName, newContactData.lastName, newContactData.email, newContactData.notes, newContactData.date)
     contactsRepo.create(newContact)
     res.redirect('/contacts')
   }
