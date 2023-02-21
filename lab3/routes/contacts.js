@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 const contactsRepo = require('../src/contactsFileRepository')
+const Contact = require('../src/contact')
 
 /* GET contacts listing. */
 router.get('/', function(req, res, next) {
@@ -13,7 +14,7 @@ router.get('/add', (req, res, next) => {
   res.render('contactForm', {title: "Contact Form"})
 })
 
-/* POST create contact form */
+/* POST create contact */
 router.post('/add', (req, res, next) => {
   const newContact = {
     firstName: req.body.firstName.trim(),
@@ -25,6 +26,7 @@ router.post('/add', (req, res, next) => {
   if (newContact.firstName === '' || newContact.lastName === ''){
     res.render('contactForm', {title: "Contacts Form", msg: "Name fields cannot be empty!"})
   } else {
+    const newContact = new Contact('', firstName, lastName, email, notes, date)
     contactsRepo.create(newContact)
     res.redirect('/contacts')
   }
@@ -56,6 +58,7 @@ router.get('/:id/edit', (req, res, next) => {
   res.render('contactFormEdit', {title: 'Edit Contact', info: contactsRepo.findById(req.params.id)})
 })
 
+/* POST edit contact */
 router.post('/:id/edit', (req, res, next) => {
   const updateContact = {
     contactID: req.params.id,
@@ -68,7 +71,8 @@ router.post('/:id/edit', (req, res, next) => {
   if (updateContact.firstName === '' || updateContact.lastName === ''){
     res.render('contactFormEdit', {title: "Contacts Form", info: contactsRepo.findById(req.params.id), msg: "Name fields cannot be empty!"})
   } else {
-    contactsRepo.update(updateContact)
+    const updatedContact = new Contact(contactID, firstName, lastName, email, notes, date)
+    contactsRepo.update(updatedContact)
     res.redirect(`/contacts/${req.params.id}`)
   }
 })
