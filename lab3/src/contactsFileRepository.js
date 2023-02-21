@@ -30,10 +30,11 @@ const repo = {
   },
   deleteById: id => {
    const stmt = db.prepare("DELETE FROM contacts WHERE contactID = ?")
-   const info = stmt.runn(id)
+   const info = stmt.run(id)
   },
   update: contact => {
-    
+    const stmt = db.prepare("UPDATE contacts SET firstName = ?, lastName = ?, email = ?, notes = ?, date = ? where contactID = ?")
+    const info = stmt.run(contact.firstName, contact.lastName, contact.email, contact.notes, contact.date, contact.contactID)
   }
 }
 
