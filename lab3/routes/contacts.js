@@ -20,7 +20,7 @@ router.post('/add', (req, res, next) => {
     lastName: req.body.lastName.trim(),
     email: req.body.email.trim(),
     notes: req.body.notes.trim(),
-    date: Date()
+    date: Date().toString()
   }
   if (newContact.firstName === '' || newContact.lastName === ''){
     res.render('contactForm', {title: "Contacts Form", msg: "Name fields cannot be empty!"})
