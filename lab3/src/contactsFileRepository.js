@@ -29,7 +29,7 @@ const repo = {
     const info = stmt.run(newContact.firstName, newContact.lastName, newContact.email, newContact.notes, newContact.date)
   },
   deleteById: id => {
-   const stmt = db.prepare("DELETE FROM contacts WHERE id = ?")
+   const stmt = db.prepare("DELETE FROM contacts WHERE contactID = ?")
    const info = stmt.runn(id)
   },
   update: contact => {
