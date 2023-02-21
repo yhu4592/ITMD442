@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to your #{title}
+  a(href='/contacts/add') Create a new Contact
+  hr
+  if contactsList.length > 0
+    #contactsList-wrapper 
+      table.contacts-list
+        tr 
+          th Name 
+          th Email
+        each contact in contactsList 
+          tr
+            td(contact-id=contact.contactID)
+              a(href=`/contacts/${contact.contactID}`)= contact.firstName + " " + contact.lastName
+            td= contact.email
+          

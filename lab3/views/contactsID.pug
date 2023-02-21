@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  a(href='/contacts') Back
+  hr
+  table 
+    tr 
+      th Last Name 
+      th First Name
+      th Email
+      th Notes
+      th Modified
+    tr 
+      td= info.firstName
+      td= info.lastName
+      td= info.email
+      td= info.notes 
+      td= info.date
+  a#editButton(href=`/contacts/${info.contactID}/edit`) Edit Contact
+  | 
+  a#deleteButton(href=`/contacts/${info.contactID}/delete`) Delete Contact
