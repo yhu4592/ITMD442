@@ -22,6 +22,4 @@ const repo = {
   }
 }
 
-loadData()
-
 module.exports = repo
